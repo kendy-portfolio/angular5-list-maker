@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
+import { ItemslistService } from '../itemslist.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  itemsList = []
 
-  constructor() { }
+  constructor(private _items:ItemslistService) { 
 
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {
+    this._items.item.subscribe(itemsList => this.itemsList = itemsList);
+    this._items.changeItem(this.itemsList);
+  }
 }
