@@ -1,0 +1,70 @@
+.position-lower {
+    margin-top: 0em;
+}
+
+.body-container {
+    padding: 100px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 50% auto;
+    z-index: 9999;
+}
+
+.col {
+    padding: .4em 1.3em;
+}
+
+.color-dark {
+    background: #330153;
+}
+
+.color-light {
+    background: #9e47d4;
+}
+
+input.txt {
+    border: 0;
+    padding: 1em;
+    width: 80%;
+    margin-bottom: 2em;
+}
+
+input.btn {
+    border: 0;
+    display: block;
+    padding: 1em 3em;
+    background: #a3a398;
+    color: #330153;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+.item-container {
+    background: #5b1288;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .2em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.remover {
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    left: 0%;
+    padding: 5px 10px;
+    transform: (0%, 50%);
+    border: 1px solid #000;
+    background: #3889f3;
+    color: #000;
+    font-weight: bold;
+}
+
+.remover:hover {
+    background: #000;
+    color: #fff;
+}
