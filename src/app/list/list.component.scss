@@ -1,5 +1,6 @@
 .items-list {
-    padding: 100px;
+    padding: 10px;
+    margin: auto;
     width: 400px;
 }
 
@@ -19,7 +20,6 @@
     padding-left: .2em;
     font-weight: bold;
     border-bottom: 1px solid #000;
-    cursor: pointer;
 }
 
 .item-bkg-dark {
@@ -37,4 +37,5 @@
     float: right;
     padding: 1em 1em;
     font-weight: bold;
+    cursor: pointer;
 }

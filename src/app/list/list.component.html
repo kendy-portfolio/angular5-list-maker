@@ -1,5 +1,5 @@
 <div class="items-list">
     <div class="items-list-title"><p>{{ listTitle }}</p></div>
-    <div class="item-container" *ngFor="let item of itemsList; let i = index">{{ item }}</div>
+    <div [ngClass]="i % 2 === 0 ? 'item-container item-bkg-dark' : 'item-container item-bkg-light'" *ngFor="let item of itemsList; let i = index">{{ item }}</div>
     <div class="email-btn">Email</div>
 </div>
