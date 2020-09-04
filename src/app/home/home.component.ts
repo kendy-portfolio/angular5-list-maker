@@ -12,7 +12,8 @@ import { ItemslistService } from '../itemslist.service';
 export class HomeComponent implements OnInit {
   itemsList = [];
   itemText: string = "Add item...";
-  btnText: String = "Add";
+  btnAddText: String = "Add";
+  btnDoneText: String = "Done";
 
   constructor(private _items:ItemslistService, private _router:Router) { 
 
@@ -32,7 +33,9 @@ export class HomeComponent implements OnInit {
   }
 
   redirectToListPage() {
-    this._router.navigate(['./list']);
+    if(this.itemsList.length > 0) {
+      this._router.navigate(['./list']);
+    }
   }
 
   removeItem(index) {

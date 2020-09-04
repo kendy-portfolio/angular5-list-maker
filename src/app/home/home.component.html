@@ -6,9 +6,14 @@
     <div class="container color-light">
         <div class="col">
             <form>
-                <input type="text" class="txt" name="item" placeholder="add item..." [(ngModel)]="itemText">
-                <input type="submit" class="btn" [value]="btnAddText" (click)="addItem()">
-                <input type="submit" class="btn" [value]="btnDoneText" (click)="doneWithItemsList()">
+                <div class="input">
+                    <input type="text" class="txt" name="item" placeholder="add item..." [(ngModel)]="itemText">
+                </div>
+                <div class="btns">
+                    <input type="submit" class="btn" [value]="btnAddText" (click)="addItem()">
+                    <input type="submit" class="btn" [class.btn-disabled]="itemsList.length === 0" [value]="btnDoneText" (click)="redirectToListPage()">
+                    <div class="clear"></div>
+                </div>
             </form>
         </div>
         <div class="col">

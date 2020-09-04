@@ -33,12 +33,31 @@ input.txt {
 
 input.btn {
     border: 0;
+    width: 100px;
     display: block;
-    padding: 1em 3em;
-    background: #a3a398;
-    color: #330153;
+    padding: 1em 1em;
+    background: #fff;
+    color: #000;
     margin-bottom: 1em;
     cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    float: left; 
+    margin-right: 20px;
+}
+
+input.btn-disabled {
+    border: 0;
+    width: 100px;
+    display: block;
+    padding: 1em 1em;
+    background: #777676;
+    color: #2e2e2e;
+    cursor: not-allowed;
+    text-align: center;
+    font-weight: bold;
+    float: left; 
+    margin-right: 20px
 }
 
 .item-container {
@@ -67,4 +86,8 @@ input.btn {
 .remover:hover {
     background: #000;
     color: #fff;
+}
+
+.clear {
+    clear: both;
 }
