@@ -1,9 +1,10 @@
-.position-lower {
-    margin-top: 0em;
+.spacer {
+    padding-top: 50px;
 }
-
 .body-container {
-    padding: 100px;
+    margin: auto;
+    width: 80%;
+    box-shadow: 4px 4px 4px black;
 }
 
 .container {
@@ -14,14 +15,15 @@
 
 .col {
     padding: .4em 1.3em;
+    border: 1px solid white;
 }
 
 .color-dark {
-    background: #330153;
+    background: black;
 }
 
 .color-light {
-    background: #9e47d4;
+    background: #252525;
 }
 
 input.txt {
