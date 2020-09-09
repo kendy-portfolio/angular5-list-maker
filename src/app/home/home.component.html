@@ -1,26 +1,30 @@
+
 <div class="spacer"></div>
 <div class="container">
     <form class="inputs-box">
-        <span class="float-left"><input type="text" class="txt" name="item" placeholder="add item..." [(ngModel)]="itemText"></span>
-        <span class="float-left"><input type="submit" class="btn" [value]="btnAddText" (click)="addItem()"></span>
+        <input class="float-left" type="text" class="txt" name="item" placeholder="add item..." [(ngModel)]="itemText">
+        <input class="float-left" type="submit" class="btn" [value]="btnAddText" (click)="addItem()">
     </form>
 </div>
 
 <div class="spacer"></div>
+<div class="container"><hr class="sep"></div>
 <div class="spacer"></div>
 
-<div class="container" *ngIf="itemsList.length > 0">
+<div class="container">
     <div class="item-box-shadow clear">
-        <div class="items-title-bar">
-            <div class="float-left items-select-all">
-                <span><input type="checkbox" class="float-left" (click)="selectAllItems($event)"></span> 
+        <div class="item-list-menu">
+            <div class="items-select-all float-left">
+                <input #mainCbx type="checkbox" (click)="selectAllItems($event)">
             </div>
-            <div class="float-left items-delete-all"><img src="../../assets/images/delete-btn.png" width="20px" height="20px" class="items-delete-all-img" (click)="deleteAllSelectedItems()"></div>
+            <div class="float-left items-delete" (click)="deleteAllSelectedItems()"></div>
         </div>
         <div class="item-container" *ngFor="let item of itemsList; let i = index">
-            <span><input #cbx type="checkbox" class="float-left" (click)="selectItem($event, i)"></span>
-            <span class="item float-left">{{ item }}</span>
-            <span class="float-left" (click)="removeItem(i)"><img src="../../assets/images/delete-btn.png" width="20px" height="20px"></span>
+            <div class="width-5pct float-left">
+                <input #cbx type="checkbox" (click)="selectItem($event, i)">
+            </div>
+            <div class="item float-left">{{ item }}</div>
+            <div class="float-left items-delete" (click)="removeItem(i)"></div>
         </div>
     </div>
 </div>

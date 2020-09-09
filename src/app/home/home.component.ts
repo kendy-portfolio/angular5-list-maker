@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChildren } from '@angular/core';
+import { Component, OnInit, ViewChildren, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { ItemslistService } from '../itemslist.service';
 
 
@@ -12,16 +11,16 @@ import { ItemslistService } from '../itemslist.service';
 export class HomeComponent implements OnInit {
   itemsList = [];
   selectedItems = [];
-  itemText: string = "Add item...";
+  itemText: string = "";
   btnAddText: String = "Add";
   btnDoneText: String = "Done";
   isCheckAllCheckboxChecked:Boolean = false;
   @ViewChildren('cbx') checkboxes;
+  @ViewChild("mainCbx") selectAllCbx;
 
   constructor(private _items:ItemslistService, private _router:Router) { 
 
   }
-
 
   ngOnInit(): void {
     this._items.item.subscribe(il => this.itemsList = il);
@@ -36,14 +35,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  redirectToListPage() {
-    if(this.itemsList.length > 0) {
-      this._router.navigate(['./list']);
-    }
-  }
-
   removeItem(index) {
     if(index >= 0 && index < this.itemsList.length) {
+      var item = this.itemsList[index];
+      if(this.selectedItems.includes(item)){
+        this.selectedItems.splice(this.selectedItems.indexOf(item), 1);
+      }
       this.itemsList.splice(index, 1);
       this._items.changeItem(this.itemsList);
     }
@@ -52,31 +49,29 @@ export class HomeComponent implements OnInit {
   selectAllItems(event) {
     if(event.target.checked){
       for(var i = 0; i < this.itemsList.length; i++){
-        if(!this.selectedItems.includes(i)) {
-          this.selectedItems.push(i);
+        if(!this.selectedItems.includes(this.itemsList[i])) {
+          this.selectedItems.push(this.itemsList[i]);
         }
       }
-      this.checkboxes.toArray().forEach(element => {
-        element.nativeElement.checked = true;
-      });
+      this.changeCheckboxStates(true);
     }
     else{
       this.selectedItems.splice(0, this.selectedItems.length);
-      this.checkboxes.toArray().forEach(element => {
-        element.nativeElement.checked = false;
-      });
+      this.changeCheckboxStates(false);
     }
   }
 
   selectItem(event, index) {
     if(event.target.checked){
-      event.target.checked = false;
-      this.selectedItems.splice(this.selectedItems.indexOf(index), 1);
-    }
-    else {
       if(!this.selectedItems.includes(index)) {
         this.selectedItems.push(index);
         event.target.checked = true;
+      }
+    }
+    else {
+      var itemIndex = this.selectedItems.indexOf(this.itemsList[index]);
+      if(itemIndex > -1) {
+        this.selectedItems.splice(itemIndex, 1);
       }
     }
   }
@@ -85,8 +80,14 @@ export class HomeComponent implements OnInit {
     for(var i = 0; i < this.selectedItems.length; i++){
       this.itemsList.splice(this.selectedItems[i], 1);
     }
-    if(this.selectedItems.length > 0){
-      this.selectedItems.splice(0, this.selectedItems.length);
-    }
+    this.selectedItems.splice(0, this.selectedItems.length);
+    this._items.changeItem(this.itemsList);
+    this.selectAllCbx.nativeElement.checked = false;
+  }
+
+  changeCheckboxStates(state:Boolean){
+    this.checkboxes.toArray().forEach(element => {
+      element.nativeElement.checked = state;
+    });
   }
 }

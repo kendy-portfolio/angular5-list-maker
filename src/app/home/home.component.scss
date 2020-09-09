@@ -15,7 +15,6 @@
 .inputs-box {
     display: flex;
     flex-direction: column row;
-    width: 427px;
     border: 5px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 }
@@ -23,12 +22,12 @@
 input.txt {
     border: 0;
     padding: 1em;
-    width: 300px;
+    width: 85%;
 }
 
 input.btn {
     border: 0;
-    width: 100px;
+    width: 15%;
     padding: 1em;
     text-align: center;
     background: #ce95fd;
@@ -39,24 +38,11 @@ input.btn {
     text-transform: uppercase;
 }
 
-input.btn-disabled {
-    border: 0;
-    width: 100px;
-    display: block;
-    padding: 1em 1em;
-    background: #777676;
-    color: #2e2e2e;
-    cursor: not-allowed;
-    text-align: center;
-    font-weight: bold;
-    float: left; 
-    margin-right: 20px
-}
-
 .item-box-shadow {
     display: flex;
     flex-direction: column;
-    width: 427px;
+    width: 80%;
+    margin: auto;
     border: 5px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 }
@@ -65,7 +51,22 @@ input.btn-disabled {
     background: white;
     color: black;
     cursor: pointer;
-    width: 427px;
+    float: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.items-title-bar {
+    height: 30px;
+    background: #65b5ce;
+    color: black;
+}
+
+.item-list-menu {
+    background:  #65b5ce;
+    color: black;
+    cursor: pointer;
     float: left;
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
     padding-top: 5px;
@@ -73,32 +74,22 @@ input.btn-disabled {
 }
 
 .item {
-    width: 350px;
-    padding-left: 5px;
-}
-
-.items-title-bar {
-    width: 427px;
-    height: 30px;
-    background: #65b5ce;
-    color: black;
-}
-
-.items-title {
-    width: 33%;
-    padding-left: 5px;
+    width: 90%;
+    padding-left: 0px;
 }
 
 .items-select-all {
-    width: 32%;
+    width: 95%;
+    padding-top: 5px;
 }
 
-.items-delete-all {
-    width: 32%;
-}
-
-.items-delete-all-img {
+.items-delete {
+    background: url(../../assets/images/delete-btn.png) no-repeat;
     cursor: pointer;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    padding-top: 5px;
 }
 
 .remover {
@@ -121,4 +112,29 @@ input.btn-disabled {
 
 .clear {
     clear: both;
+}
+
+.burger-icon-container {
+    height: 100%;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 4px;
+}
+
+.burger-icon {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 3px 0;
+}
+
+.width-5pct {
+    width: 5%;
+}
+
+hr.sep {
+    border: none;
+    width: 50%;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(15, 15, 15, 0.5), rgba(255, 255, 255, 0.5));
 }
